@@ -6,8 +6,10 @@ import numpy as np
 dataset= pd.read_csv('Restaurant_Reviews.tsv', delimiter='\t', quoting=3)
 
 #cleaning process
+#importing the libraries for datapreprocessing
 import re
 import nltk
+#downloading the nltk(Natural Language toolkit) stopwords
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
@@ -32,6 +34,7 @@ y =dataset.iloc[:,1].values
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 0)
 
+############Naive Bayes Classifier############
 # Fitting Naive Bayes to the Training set
 from sklearn.naive_bayes import GaussianNB
 classifier = GaussianNB()
